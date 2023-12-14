@@ -15,7 +15,7 @@ import (
 
 var collectionName = db.GetUsersCollection("users")
 
-func SignUp(res *gin.Context) {
+func SignUpHandler(res *gin.Context) {
 	var signUpObj *models.SignUp
 	if err := res.BindJSON(&signUpObj); err != nil {
 		fmt.Println("Error in Binding")
@@ -47,4 +47,8 @@ func SignUp(res *gin.Context) {
 	}
 	fmt.Println(result)
 	res.JSON(http.StatusCreated, tokenString)
+}
+
+func GetSignUpHandler(res *gin.Context) {
+	res.JSON(http.StatusOK, gin.H{"message": "You have accessed the /signup GET path"})
 }

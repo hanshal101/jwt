@@ -24,7 +24,8 @@ func main() {
 
 	r.GET("/api", middlewares.ValidateToken(), handlers.GetAPIHandler)
 
-	r.POST("/signup", handlers.SignUp)
+	r.GET("/signup", handlers.GetSignUpHandler)
+	r.POST("/signup", handlers.SignUpHandler)
 
 	r.Run(":9876")
 }
