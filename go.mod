@@ -10,7 +10,6 @@ require (
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/mongo-go/testdb v0.0.0-20201209140737-c4845cc6fe67 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 )
 
