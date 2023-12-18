@@ -27,5 +27,7 @@ func main() {
 	r.GET("/signup", handlers.GetSignUpHandler)
 	r.POST("/signup", handlers.SignUpHandler)
 
+	r.POST("/logout", handlers.LogoutHandler)
+
 	r.Run(":9876")
 }

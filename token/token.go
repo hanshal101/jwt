@@ -27,7 +27,7 @@ func GenerateToken(claims *models.JwtClaims, expirationTime time.Time) (string, 
 	return tokenString, nil
 }
 
-func VerifyToken(tokenString string, origin string) (bool, *models.JwtClaims) {
+func VerifyToken(tokenString string, _ string) (bool, *models.JwtClaims) {
 	claims := &models.JwtClaims{}
 	token, _ := getTokenfromString(tokenString, claims)
 	if token.Valid {

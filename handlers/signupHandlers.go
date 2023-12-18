@@ -16,17 +16,29 @@ import (
 var collectionName = db.GetUsersCollection("users")
 
 func SignUpHandler(res *gin.Context) {
+
 	var signUpObj *models.SignUp
 	if err := res.BindJSON(&signUpObj); err != nil {
 		fmt.Println("Error in Binding")
+	}
+	isEmailPhoneValid, err := helpers.ValidEmailPhone(signUpObj.Email, signUpObj.Phone)
+	if err != nil {
+		fmt.Printf("Error checking email and phone validity: %v\n", err)
+		res.JSON(http.StatusInternalServerError, gin.H{"message": "Internal server error"})
+		return
+	}
+
+	if !isEmailPhoneValid {
+		res.JSON(http.StatusBadRequest, gin.H{"message": "Email or Phone already exist"})
+		return
 	}
 	var claims = &models.JwtClaims{}
 	claims.Email = signUpObj.Email
 	claims.Phone = signUpObj.Phone
 	claims.Username = signUpObj.Username
-	claims.Audience = res.Request.Header.Get("Referer")
 	var tokenCreation = time.Now().UTC()
-	var expirationTime = tokenCreation.Add(time.Duration(10) * time.Hour)
+	var expirationTime = tokenCreation.Add(time.Duration(30) * time.Second)
+	claims.Audience = "192.168.0.107"
 	tokenString, err := jwttoken.GenerateToken(claims, expirationTime)
 
 	if err != nil {

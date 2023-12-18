@@ -29,8 +29,6 @@ func LoginHandler(res *gin.Context) {
 		res.JSON(http.StatusBadRequest, gin.H{"message": "Invalid username or password"})
 		return
 	}
-	fmt.Println("Stored Password Hash:", user.Password)
-	fmt.Println("Entered Password Hash:", loginObj.Password)
 
 	valid := helpers.ValidatePassword(user.Password, loginObj.Password)
 
@@ -46,13 +44,15 @@ func LoginHandler(res *gin.Context) {
 	claims.Username = loginObj.Username
 
 	var tokenCreation = time.Now().UTC()
-	var expirationTime = tokenCreation.Add(time.Duration(10) * time.Hour)
+	var expirationTime = tokenCreation.Add(time.Duration(30) * time.Second)
 	tokenString, err := jwttoken.GenerateToken(claims, expirationTime)
 
 	if err != nil {
 		fmt.Println("Error in generating token")
 		return
 	}
+	res.SetCookie("apikey", tokenString, int(expirationTime.Unix()), "/", "/", true, true)
+
 	res.JSON(http.StatusOK, gin.H{"token": tokenString})
 }
 
