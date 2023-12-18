@@ -3,11 +3,12 @@ package handlers
 import (
 	"context"
 	"fmt"
-	"hanshal101/jwt/internal/helpers"
-	"hanshal101/jwt/models"
-	jwttoken "hanshal101/jwt/token"
 	"net/http"
 	"time"
+
+	"github.com/hanshal101/jwt/internal/helpers"
+	"github.com/hanshal101/jwt/models"
+	jwttoken "github.com/hanshal101/jwt/token"
 
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"

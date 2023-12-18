@@ -2,8 +2,9 @@ package token
 
 import (
 	"fmt"
-	"hanshal101/jwt/models"
 	"time"
+
+	"github.com/hanshal101/jwt/models"
 
 	"github.com/golang-jwt/jwt"
 )

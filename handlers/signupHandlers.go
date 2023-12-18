@@ -3,12 +3,14 @@ package handlers
 import (
 	"context"
 	"fmt"
-	"hanshal101/jwt/internal/db"
-	"hanshal101/jwt/internal/helpers"
-	"hanshal101/jwt/models"
-	jwttoken "hanshal101/jwt/token"
 	"net/http"
 	"time"
+
+	jwttoken "github.com/hanshal101/jwt/token"
+
+	"github.com/hanshal101/jwt/internal/db"
+	"github.com/hanshal101/jwt/internal/helpers"
+	"github.com/hanshal101/jwt/models"
 
 	"github.com/gin-gonic/gin"
 )

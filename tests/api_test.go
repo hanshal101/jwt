@@ -1,11 +1,12 @@
 package main
 
 import (
-	"hanshal101/jwt/handlers"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/hanshal101/jwt/handlers"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"

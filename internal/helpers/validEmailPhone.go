@@ -2,7 +2,8 @@ package helpers
 
 import (
 	"context"
-	"hanshal101/jwt/internal/db"
+
+	"github.com/hanshal101/jwt/internal/db"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

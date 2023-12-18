@@ -1,9 +1,10 @@
 package middlewares
 
 import (
-	"hanshal101/jwt/models"
-	"hanshal101/jwt/token"
 	"net/http"
+
+	"github.com/hanshal101/jwt/models"
+	"github.com/hanshal101/jwt/token"
 
 	"github.com/gin-gonic/gin"
 )

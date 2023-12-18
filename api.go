@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"hanshal101/jwt/handlers"
-	"hanshal101/jwt/internal/db"
-	"hanshal101/jwt/middlewares"
+
+	"github.com/hanshal101/jwt/handlers"
+	"github.com/hanshal101/jwt/internal/db"
+	"github.com/hanshal101/jwt/middlewares"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
