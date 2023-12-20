@@ -14,10 +14,17 @@ pipeline {
                 sh 'go test ./...'
             }
         }
-        stage("Build") {
+        stage("Go Build") {
             steps {
                 sh 'go build .'
             }
-        }
+            }
+            stage("Docker Image Build") {
+                steps {
+                    script {
+                        app = docker.build("hanshal785/jwt")
+                    }
+                }
+            }
     }
 }
