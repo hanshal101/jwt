@@ -29,6 +29,12 @@ pipeline {
       }
     }
 
+    stage('Message') {
+      steps {
+        sh 'echo "Successfully ran the Jenkinsfile"'
+      }
+    }
+
   }
   tools {
     go 'go-1.21.5'
