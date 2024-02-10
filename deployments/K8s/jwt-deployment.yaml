@@ -18,5 +18,9 @@ spec:
           env:
             - name: MONGODB_URI
               value: "mongodb://mongodb-service:27017/"
+            - name: JWT_TOKEN
+              value: "SECReT"
+            - name: IP
+              value: "192.168.18.108"
           ports:
             - containerPort: 9876
