@@ -4,12 +4,13 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-const uri = "mongodb://localhost:27017/"
+var uri = string(os.Getenv("MONGO_URI"))
 
 func MongoConnect() {
 	serverAPI := options.ServerAPI(options.ServerAPIVersion1)
